@@ -9,4 +9,6 @@ import java.util.List;
 public interface IProductService {
     List<Product> getAll();
     Product create(ProductReqDto productDto, User authUser);
+
+    Product delete(Long id);
 }

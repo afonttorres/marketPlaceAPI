@@ -29,4 +29,11 @@ public class ProductService implements IProductService{
         product.setSeller(authUser);
         return productRepository.save(product);
     }
+
+    @Override
+    public Product delete(Long id) {
+        Product product = productRepository.findById(id).get();
+        productRepository.delete(product);
+        return product;
+    }
 }

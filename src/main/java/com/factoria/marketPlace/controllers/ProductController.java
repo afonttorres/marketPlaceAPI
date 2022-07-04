@@ -5,6 +5,7 @@ import com.factoria.marketPlace.models.Product;
 import com.factoria.marketPlace.models.User;
 import com.factoria.marketPlace.services.IProductService;
 import com.factoria.marketPlace.services.IUserService;
+import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -31,6 +32,11 @@ public class ProductController {
     Product create(@RequestBody ProductReqDto productDto){
          User authUser = this.getAuth();
          return productService.create(productDto, authUser);
+    }
+
+    @DeleteMapping("/product/{id}")
+    Product delete(@PathVariable Long id){
+         return productService.delete(id);
     }
 
     private User getAuth(){
